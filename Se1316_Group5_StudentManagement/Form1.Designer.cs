@@ -64,6 +64,7 @@
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
             this.classToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.classToolStripMenuItem.Text = "Class";
+            this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 

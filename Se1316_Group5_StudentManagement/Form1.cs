@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Se1316_Group5_StudentManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,11 @@ namespace Se1316_Group5_StudentManagement {
 
             panel.Controls.Add(f);
 
+        }
+
+        private void classToolStripMenuItem_Click(object sender, EventArgs e) {
+            ClassGUI f = new ClassGUI();
+            embed(toolStripContainer1.ContentPanel, f);
         }
         //ReserveGUI f = new ReserveGUI();
         //embed(toolStripContainer1.ContentPanel, f);
