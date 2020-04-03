@@ -308,9 +308,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(342, 335);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(148, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Quang";
+            this.button1.Text = "Hoang oc cho";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // TeacherGUI
