@@ -12,5 +12,8 @@ namespace Se1316_Group5_StudentManagement {
         public Form1() {
             InitializeComponent();
         }
+
+        //ReserveGUI f = new ReserveGUI();
+        //embed(toolStripContainer1.ContentPanel, f);
     }
 }
