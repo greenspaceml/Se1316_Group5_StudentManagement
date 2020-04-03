@@ -9,13 +9,17 @@ using System.Text;
 namespace Se1316_Group5_StudentManagement.DAL {
     class ClassDAO {
         public static DataTable GetAllClass_Hieu() {
-            string cmd = "select c.ClassID, c.ClassName, t.Name as TeacherName from Class c inner join Teacher_Class tc" +
-                " on c.ClassID = tc.ClassID inner join Teacher t on tc.TeacherID = t.TeacherID";
+            string cmd = "select c.ClassID, c.ClassName, t.Name as TeacherName, (select count(StudentID) from Study) as Students"+
+                         " from Class c inner join Teacher_Class tc" +
+                         " on c.ClassID = tc.ClassID"+
+                         " inner join Teacher t on tc.TeacherID = t.TeacherID";
             return DAO.GetDataTable(cmd);
         }
         public static Boolean GetClassByID_Hieu(int id) {
-            SqlCommand cmd = new SqlCommand("select c.ClassID, c.ClassName, t.Name as TeacherName from Class c inner join Teacher_Class tc" +
-                " on c.ClassID = tc.ClassID inner join Teacher t on tc.TeacherID = t.TeacherID where c.ClassID = @id");
+            SqlCommand cmd = new SqlCommand("select c.ClassID, c.ClassName, t.Name as TeacherName, (select count(StudentID) from Study) as Students" +
+                         " from Class c inner join Teacher_Class tc" +
+                         " on c.ClassID = tc.ClassID" +
+                         " inner join Teacher t on tc.TeacherID = t.TeacherID where c.ClassID = @id");
             cmd.Parameters.AddWithValue("@id", id);
             return DAO.UpdateTable(cmd);
         }
