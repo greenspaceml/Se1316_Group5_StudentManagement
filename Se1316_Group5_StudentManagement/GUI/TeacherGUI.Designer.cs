@@ -48,6 +48,7 @@
             this.radMale = new System.Windows.Forms.RadioButton();
             this.radFemale = new System.Windows.Forms.RadioButton();
             this.dtDOB = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataTeacher)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.dataTeacher.ReadOnly = true;
             this.dataTeacher.Size = new System.Drawing.Size(569, 280);
             this.dataTeacher.TabIndex = 0;
+            this.dataTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTeacher_CellClick);
             // 
             // lbFilter
             // 
@@ -87,6 +89,7 @@
             this.btnFilter.TabIndex = 3;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // btnAdd
             // 
@@ -106,6 +109,7 @@
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -115,6 +119,7 @@
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox1
             // 
@@ -299,11 +304,21 @@
             this.dtDOB.Size = new System.Drawing.Size(184, 20);
             this.dtDOB.TabIndex = 17;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(342, 335);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // TeacherGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 438);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -350,5 +365,6 @@
         private System.Windows.Forms.RadioButton radMale;
         private System.Windows.Forms.RadioButton radFemale;
         private System.Windows.Forms.DateTimePicker dtDOB;
+        private System.Windows.Forms.Button button1;
     }
 }

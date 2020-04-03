@@ -1,4 +1,5 @@
 ﻿using Se1316_Group5_StudentManagement.DAL;
+using Se1316_Group5_StudentManagement.DTL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,11 @@ using System.Windows.Forms;
 namespace Se1316_Group5_StudentManagement.GUI {
     public partial class TeacherGUI : Form {
         TeacherDAO tdb;
+        string flag;
         public TeacherGUI() {
             InitializeComponent();
             tdb = new TeacherDAO();
+            flag = "";
         }
 
         private void TeacherGUI_Load(object sender, EventArgs e) {
@@ -33,10 +36,13 @@ namespace Se1316_Group5_StudentManagement.GUI {
             txtEmail.Enabled = status;
             btnSave.Enabled = status;
             btnCancel.Enabled = status;
+            radMale.Enabled = status;
+            radFemale.Enabled = status;
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
             setEnable(true);
+            flag = "add";
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -44,7 +50,81 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            
+            Teacher teacher = new Teacher();
+            teacher.Name = txtName.Text;
+            teacher.gender = radMale.Checked;
+            teacher.Email = txtEmail.Text;
+            teacher.Address = txtAddress.Text;
+            teacher.Phone = txtPhone.Text;
+            teacher.Dob = dtDOB.Value;
+
+            if (flag.Equals("add")) {
+                bool isDone = tdb.insertTeacher_Dat(teacher);
+
+                if (isDone) {
+                    MessageBox.Show("Insert done!");
+                    setEnable(false);
+                }
+            }
+
+            if (flag.Equals("edit")) {
+                teacher.TeacherID = Convert.ToInt32(txtTeacherId.Text);
+
+                bool isDone = tdb.updateTeacher_Dat(teacher);
+
+                if (isDone) {
+                    MessageBox.Show("Update done!");
+                    setEnable(false);
+                }
+            }
+
+
+            loadData();
+        }
+
+        private void dataTeacher_CellClick(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex < 0)
+                return;
+
+            txtTeacherId.Text = dataTeacher.Rows[e.RowIndex].Cells["TeacherId"].Value.ToString();
+            txtName.Text = dataTeacher.Rows[e.RowIndex].Cells["name"].Value.ToString();
+            txtAddress.Text = dataTeacher.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+            txtEmail.Text = dataTeacher.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            txtPhone.Text = dataTeacher.Rows[e.RowIndex].Cells["Phone"].Value.ToString();
+            radMale.Checked = (bool) dataTeacher.Rows[e.RowIndex].Cells["Gender"].Value;
+            radFemale.Checked = !(bool) dataTeacher.Rows[e.RowIndex].Cells["Gender"].Value;
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e) {
+            DataTable dt = tdb.selectTeacher_Dat();
+            DataView dv = new DataView(dt);
+            dv.RowFilter = "name like '%" + txtFilter.Text + "%'";
+            dataTeacher.DataSource = dv;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e) {
+            if (dataTeacher.SelectedRows.Count <= 0) {
+                MessageBox.Show("Please select a row!");
+                return;
+            }
+
+            setEnable(true);
+            flag = "edit";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e) {
+            if (dataTeacher.SelectedRows.Count <= 0) {
+                MessageBox.Show("Please select a row!");
+                return;
+            }
+
+            var confirmResult = MessageBox.Show("Are you sure to delete this teacher?", "Confirm Delete!!", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes) {
+                int teacherID = Convert.ToInt32(txtTeacherId.Text);
+                tdb.deleteTeacher_Dat(teacherID);
+
+                loadData();
+            }
         }
     }
 }
