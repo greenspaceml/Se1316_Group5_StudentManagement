@@ -12,7 +12,15 @@ namespace Se1316_Group5_StudentManagement {
         public Form1() {
             InitializeComponent();
         }
+        private void embed(Panel panel, Form f) {
+            panel.Controls.Clear();
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.TopLevel = false;
+            f.Show();
 
+            panel.Controls.Add(f);
+
+        }
         //ReserveGUI f = new ReserveGUI();
         //embed(toolStripContainer1.ContentPanel, f);
     }
