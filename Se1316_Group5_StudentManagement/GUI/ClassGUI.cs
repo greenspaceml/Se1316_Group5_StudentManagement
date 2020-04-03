@@ -22,6 +22,8 @@ namespace Se1316_Group5_StudentManagement.GUI {
             dataGridView1.DataSource = dv;
         }
 
+        private void btnAdd_Click(object sender, EventArgs e) {
 
+        }
     }
 }
