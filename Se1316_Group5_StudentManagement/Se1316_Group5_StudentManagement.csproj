@@ -91,6 +91,9 @@
     <EmbeddedResource Include="GUI\ClassGUI.resx">
       <DependentUpon>ClassGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StudentGUI.resx">
+      <DependentUpon>StudentGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
