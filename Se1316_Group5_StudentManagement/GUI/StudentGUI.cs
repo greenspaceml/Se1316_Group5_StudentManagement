@@ -142,12 +142,12 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void cbxClassName_SelectedIndexChanged(object sender, EventArgs e) {
-            if(check) {
+            //if(check) {
                 DataTable dt = StudentDAO.GetListSubjectByClass_Quang(cbxClassName.SelectedValue.ToString());
                 lbxSubject.DataSource = dt;
                 lbxSubject.ValueMember = "SubjectID";
                 lbxSubject.DisplayMember = "SubjectName";
-            }
+            //}
         }
 
         private void btnChangeClass_Click(object sender, EventArgs e) {
