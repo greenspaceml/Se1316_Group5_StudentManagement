@@ -1,6 +1,7 @@
 ﻿using Se1316_Group5_StudentManagement.DAL;
 using Se1316_Group5_StudentManagement.DTL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,8 @@ namespace Se1316_Group5_StudentManagement.GUI {
             
         }
         private void loadData() {
-            DataTable dt = classDAO.GetAllClass_Hieu();
+            DataTable dt = new DataTable();
+            dt = classDAO.GetAllClass_Hieu();
             dataGridView1.DataSource = dt;
         }
         private void setEnable(bool status) {
@@ -68,7 +70,8 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void btnFilter_Click(object sender, EventArgs e) {
-            DataTable dt = classDAO.GetAllClass_Hieu();
+            DataTable dt = new DataTable();
+            dt = classDAO.GetAllClass_Hieu();
             DataView dv = new DataView(dt);
             dv.RowFilter = " ClassName like '%" + txtFilter.Text + "%'";
             dataGridView1.DataSource = dv;
@@ -77,6 +80,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
         private void btnSave_Click(object sender, EventArgs e) {
             Class c = new Class();
             TeacherClass tc = new TeacherClass();
+            c.ClassID = int.Parse(txtClassID.Text);
             c.ClassName = txtClassName.Text;
             Teacher t = classDAO.GetTeacherByName_Hieu(txtTeacher.Text);
             if (flag.Equals("add")) {
@@ -94,8 +98,8 @@ namespace Se1316_Group5_StudentManagement.GUI {
             }
 
             if (flag.Equals("edit")) {
-                tc.ID = Convert.ToInt32(txtID.Text);
-                tc.ClassID = Convert.ToInt32(txtClassID.Text);
+                tc.ID = int.Parse(txtID.Text);
+                tc.ClassID = c.ClassID;
                 tc.TeacherID = t.TeacherID;
                 bool isDoneC = classDAO.UpdateClass_Hieu(c);
                 bool isDoneTC = classDAO.UpdateTeacherClass_Hieu(tc);

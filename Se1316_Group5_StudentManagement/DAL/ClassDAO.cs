@@ -1,5 +1,6 @@
 ﻿using Se1316_Group5_StudentManagement.DTL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,11 +15,12 @@ namespace Se1316_Group5_StudentManagement.DAL {
 
         }
         public DataTable GetAllClass_Hieu() {
-            string cmd = "select tc.ID, c.ClassID, c.ClassName, t.Name as TeacherName, (select count(StudentID) from Study) as Students"+
+            String sql = @"select tc.ID, c.ClassID, c.ClassName, t.Name as TeacherName," +
+                         " (select count(StudentID) from Student where classID = 1) as Students" +
                          " from Class c inner join Teacher_Class tc" +
-                         " on c.ClassID = tc.ClassID"+
+                         " on c.ClassID = tc.ClassID" +
                          " inner join Teacher t on tc.TeacherID = t.TeacherID";
-            return DAO.GetDataTable(cmd);
+            return DAO.GetDataTable(sql);
         }
         public Class GetClassByName_Hieu(string name) {
             SqlConnection conn = new SqlConnection(strConn);
@@ -82,13 +84,17 @@ namespace Se1316_Group5_StudentManagement.DAL {
             return DAO.UpdateTable(cmd);
         }
         public bool UpdateClass_Hieu(Class c) {
-            SqlCommand cmd = new SqlCommand("update Class set ClassName=@className where ClassID=@classID");
+            SqlCommand cmd = new SqlCommand(@"UPDATE [dbo].[Class]
+                                            SET [ClassName] = @className
+                                            WHERE ClassID = @classID");
             cmd.Parameters.AddWithValue("@className", c.ClassName);
             cmd.Parameters.AddWithValue("@classID", c.ClassID);
             return DAO.UpdateTable(cmd);
         }
         public bool UpdateTeacherClass_Hieu(TeacherClass tc) {
-            SqlCommand cmd = new SqlCommand("update Teacher_Class set ClassID=@classID, TeacherID=@teacherID where ID=@ID");
+            SqlCommand cmd = new SqlCommand(@"UPDATE [dbo].[Teacher_Class]
+                                            SET[ClassID] = @classID
+                                            ,[TeacherID] = @teacherID WHERE ID = @ID");
             cmd.Parameters.AddWithValue("@ID", tc.ID);
             cmd.Parameters.AddWithValue("@teacherID", tc.TeacherID);
             cmd.Parameters.AddWithValue("@classID",tc.ClassID);
