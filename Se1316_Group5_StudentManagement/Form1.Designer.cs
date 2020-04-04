@@ -50,11 +50,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-
-            this.menuStrip1.Size = new System.Drawing.Size(1220, 58);
-
-            this.menuStrip1.Size = new System.Drawing.Size(1257, 24);
-
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 58);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,17 +105,10 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1220, 484);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1257, 576);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 61);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1220, 484);
-
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1257, 610);
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 27);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1257, 610);
-
+            this.toolStripContainer1.Size = new System.Drawing.Size(1257, 576);
             this.toolStripContainer1.TabIndex = 2;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
