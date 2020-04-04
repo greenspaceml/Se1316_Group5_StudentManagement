@@ -71,7 +71,6 @@ namespace Se1316_Group5_StudentManagement.DAL {
             cmd.Parameters.AddWithValue("@id", teacherId);
             return DAO.UpdateTable(cmd);
         }
-
         public bool insertTeache_Dat(int teacherId, int subjectID) {
             string query = @"INSERT INTO [dbo].[Teach]
                            ([TeacherID]
@@ -102,6 +101,9 @@ namespace Se1316_Group5_StudentManagement.DAL {
             cmd.Parameters.AddWithValue("@teacherId", teacherId);
             cmd.Parameters.AddWithValue("@subjectId", subjectID);
             return DAO.UpdateTable(cmd);
+        }
+        public DataTable GetAllTeacher_Hieu() {
+            return DAO.GetDataTable("select TeacherID, Name from Teacher order by TeacherID asc");
         }
     }
 }
