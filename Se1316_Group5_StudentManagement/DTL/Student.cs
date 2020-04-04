@@ -31,5 +31,8 @@ namespace Se1316_Group5_StudentManagement.DTL {
         public string Phone { get => phone; set => phone = value; }
         public string Email { get => email; set => email = value; }
 
+        public string getGender_Quang() {
+            return this.gender == true ? "Male" : "Female";
+        }
     }
 }

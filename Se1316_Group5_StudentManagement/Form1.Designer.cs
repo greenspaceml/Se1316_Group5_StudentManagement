@@ -49,7 +49,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1220, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,6 +85,7 @@
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
             this.subjectToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.subjectToolStripMenuItem.Text = "Subject";
+            this.subjectToolStripMenuItem.Click += new System.EventHandler(this.subjectToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -102,10 +103,10 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1220, 493);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1257, 610);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 27);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1220, 518);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1257, 610);
             this.toolStripContainer1.TabIndex = 2;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -113,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 557);
+            this.ClientSize = new System.Drawing.Size(1257, 638);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
