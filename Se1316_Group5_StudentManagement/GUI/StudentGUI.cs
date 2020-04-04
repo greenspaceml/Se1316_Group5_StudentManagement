@@ -11,11 +11,13 @@ using System.Windows.Forms;
 
 namespace Se1316_Group5_StudentManagement.GUI {
     public partial class StudentGUI : Form {
+        bool check = false;
         public StudentGUI() {
             InitializeComponent();
             LoadStudentGridView();
             setEnableOFF();
             LoadClassCombobox();
+            check = true;
         }
         private void LoadStudentGridView() {
             DataTable dt = StudentDAO.GetListStudent_Quang();
@@ -140,10 +142,12 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void cbxClassName_SelectedIndexChanged(object sender, EventArgs e) {
-            DataTable dt = StudentDAO.GetListSubjectByClass_Quang(cbxClassName.SelectedValue.ToString());
-            lbxSubject.DataSource = dt;
-            lbxSubject.ValueMember = "SubjectID";
-            lbxSubject.DisplayMember = "SubjectName";
+            if(check) {
+                DataTable dt = StudentDAO.GetListSubjectByClass_Quang(cbxClassName.SelectedValue.ToString());
+                lbxSubject.DataSource = dt;
+                lbxSubject.ValueMember = "SubjectID";
+                lbxSubject.DisplayMember = "SubjectName";
+            }
         }
 
         private void btnChangeClass_Click(object sender, EventArgs e) {
