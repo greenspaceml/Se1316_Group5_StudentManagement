@@ -80,7 +80,6 @@ namespace Se1316_Group5_StudentManagement.GUI {
         private void btnSave_Click(object sender, EventArgs e) {
             Class c = new Class();
             TeacherClass tc = new TeacherClass();
-            c.ClassID = int.Parse(txtClassID.Text);
             c.ClassName = txtClassName.Text;
             Teacher t = classDAO.GetTeacherByName_Hieu(txtTeacher.Text);
             if (flag.Equals("add")) {
@@ -98,6 +97,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
             }
 
             if (flag.Equals("edit")) {
+                c.ClassID = int.Parse(txtClassID.Text);
                 tc.ID = int.Parse(txtID.Text);
                 tc.ClassID = c.ClassID;
                 tc.TeacherID = t.TeacherID;
