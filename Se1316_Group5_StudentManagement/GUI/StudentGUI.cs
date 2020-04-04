@@ -1,4 +1,5 @@
 ﻿using Se1316_Group5_StudentManagement.DAL;
+using Se1316_Group5_StudentManagement.DTL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,10 @@ namespace Se1316_Group5_StudentManagement.GUI {
             btnDelete.Enabled = !va;
             btnAdd.Enabled = !va;
         }
+        void setEnableForDelete() {
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+        }
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e) {
             txtStudentID.Text = dataGridViewStudent.Rows[e.RowIndex].Cells["StudentID"].Value.ToString();
             txtStudentName.Text = dataGridViewStudent.Rows[e.RowIndex].Cells["Name"].Value.ToString();
@@ -88,6 +93,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
+            setEnableForDelete();
             bool checking = StudentDAO.DeleteStudent(txtStudentID.Text);
             MessageBox.Show(checking ? "Student delete successful!" : "Student delete failed!");
             LoadStudentGridView();
