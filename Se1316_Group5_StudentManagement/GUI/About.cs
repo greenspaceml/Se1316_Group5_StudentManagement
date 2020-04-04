@@ -12,5 +12,9 @@ namespace Se1316_Group5_StudentManagement.GUI {
         public About() {
             InitializeComponent();
         }
+
+        private void label5_Click(object sender, EventArgs e) {
+
+        }
     }
 }

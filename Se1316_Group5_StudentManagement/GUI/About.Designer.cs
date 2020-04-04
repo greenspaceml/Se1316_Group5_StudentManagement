@@ -49,9 +49,10 @@
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(314, 344);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(358, 27);
+            this.label5.Size = new System.Drawing.Size(389, 27);
             this.label5.TabIndex = 11;
-            this.label5.Text = "4. Dang Huy Hoang - Subject, Static";
+            this.label5.Text = "4. Do Huy Hoang - Subject, Stock Mark";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
