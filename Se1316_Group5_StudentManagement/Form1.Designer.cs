@@ -85,6 +85,7 @@
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
             this.subjectToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.subjectToolStripMenuItem.Text = "Subject";
+            this.subjectToolStripMenuItem.Click += new System.EventHandler(this.subjectToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
