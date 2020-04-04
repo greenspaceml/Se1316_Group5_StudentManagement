@@ -50,6 +50,7 @@
     <Compile Include="DAL\SubjectDAO.cs" />
     <Compile Include="DAL\TeacherDAO.cs" />
     <Compile Include="DTL\Class.cs" />
+    <Compile Include="DTL\Mark.cs" />
     <Compile Include="DTL\Student.cs" />
     <Compile Include="DTL\Subject.cs" />
     <Compile Include="DTL\Teacher.cs" />
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ClassGUI.cs">
       <SubType>Form</SubType>
@@ -90,10 +97,19 @@
     <Compile Include="GUI\TeacherGUI.Designer.cs">
       <DependentUpon>TeacherGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TeacherSubjectManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TeacherSubjectManagement.Designer.cs">
+      <DependentUpon>TeacherSubjectManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ClassGUI.resx">
       <DependentUpon>ClassGUI.cs</DependentUpon>
@@ -101,11 +117,17 @@
     <EmbeddedResource Include="GUI\StudentGUI.resx">
       <DependentUpon>StudentGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubjectDetailGUI.resx">
+      <DependentUpon>SubjectDetailGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\SubjectGUI.resx">
       <DependentUpon>SubjectGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TeacherGUI.resx">
       <DependentUpon>TeacherGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TeacherSubjectManagement.resx">
+      <DependentUpon>TeacherSubjectManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

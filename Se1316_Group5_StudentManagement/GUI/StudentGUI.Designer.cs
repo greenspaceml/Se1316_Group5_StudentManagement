@@ -45,8 +45,13 @@
             this.rdbFemale = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxClassName = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnChangeClass = new System.Windows.Forms.Button();
+            this.lbxSubject = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewStudent
@@ -275,12 +280,55 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbxSubject);
+            this.groupBox2.Controls.Add(this.cbxClassName);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnChangeClass);
             this.groupBox2.Location = new System.Drawing.Point(648, 334);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(551, 259);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Student\'s Class Information";
+            // 
+            // cbxClassName
+            // 
+            this.cbxClassName.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxClassName.FormattingEnabled = true;
+            this.cbxClassName.Location = new System.Drawing.Point(174, 23);
+            this.cbxClassName.Name = "cbxClassName";
+            this.cbxClassName.Size = new System.Drawing.Size(121, 24);
+            this.cbxClassName.TabIndex = 6;
+            this.cbxClassName.SelectedIndexChanged += new System.EventHandler(this.cbxClassName_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(58, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 16);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Class Name :";
+            // 
+            // btnChangeClass
+            // 
+            this.btnChangeClass.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeClass.Location = new System.Drawing.Point(100, 115);
+            this.btnChangeClass.Name = "btnChangeClass";
+            this.btnChangeClass.Size = new System.Drawing.Size(138, 23);
+            this.btnChangeClass.TabIndex = 3;
+            this.btnChangeClass.Text = "Change to this Class";
+            this.btnChangeClass.UseVisualStyleBackColor = true;
+            this.btnChangeClass.Click += new System.EventHandler(this.btnChangeClass_Click);
+            // 
+            // lbxSubject
+            // 
+            this.lbxSubject.FormattingEnabled = true;
+            this.lbxSubject.Location = new System.Drawing.Point(341, 20);
+            this.lbxSubject.Name = "lbxSubject";
+            this.lbxSubject.Size = new System.Drawing.Size(204, 225);
+            this.lbxSubject.TabIndex = 7;
             // 
             // StudentGUI
             // 
@@ -295,6 +343,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -323,5 +373,9 @@
         private System.Windows.Forms.RadioButton rdbFemale;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListBox lbxSubject;
+        private System.Windows.Forms.ComboBox cbxClassName;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnChangeClass;
     }
 }
