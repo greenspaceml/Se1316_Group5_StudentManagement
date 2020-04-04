@@ -11,6 +11,13 @@ using System.Text;
 namespace Se1316_Group5_StudentManagement.DAL {
     class SubjectDAO {
         static string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public DataTable selectSubject_Dat() {
+            return DAO.GetDataTable(@"SELECT * FROM [StudentManagementSystem].[dbo].[Subject]");
+        }
+
+        public DataTable selectSubjectById_Dat(int subjectId) {
+            return DAO.GetDataTable(@"SELECT * FROM [StudentManagementSystem].[dbo].[Subject] WHERE SubjectID = " + subjectId);
+        }
 
         public static DataTable getSubject_Hoang() {
             string cmd = @"SELECT [SubjectID]
