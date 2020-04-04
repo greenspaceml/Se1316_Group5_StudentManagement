@@ -11,10 +11,14 @@ namespace Se1316_Group5_StudentManagement.DTL {
 
         public int ClassID {
             get { return classID; }
+            set { classID = value; }
         }
         public string ClassName {
             get { return className; }
             set { className = value; }
+        }
+        public Class() {
+
         }
         public Class(int classID, string className){
             this.classID = classID;

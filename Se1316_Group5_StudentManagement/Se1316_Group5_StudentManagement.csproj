@@ -53,6 +53,7 @@
     <Compile Include="DTL\Student.cs" />
     <Compile Include="DTL\Subject.cs" />
     <Compile Include="DTL\Teacher.cs" />
+    <Compile Include="DTL\TeacherClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
