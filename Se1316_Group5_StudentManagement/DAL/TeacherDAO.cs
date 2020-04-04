@@ -105,5 +105,14 @@ namespace Se1316_Group5_StudentManagement.DAL {
         public DataTable GetAllTeacher_Hieu() {
             return DAO.GetDataTable("select TeacherID, Name from Teacher order by TeacherID asc");
         }
+
+        public DataTable selectTeachSubjectBySubjectCode_Dat(string subjectCode) {
+            string query = @"SELECT        Teacher.TeacherID, Teacher.Name, Teacher.Gender, Subject.*
+                        FROM            Subject INNER JOIN
+                                                 Teach ON Subject.SubjectID = Teach.SubjectID INNER JOIN
+                                                 Teacher ON Teach.TeacherID = Teacher.TeacherID
+                                Where subjectCode like '" + subjectCode + "'";
+            return DAO.GetDataTable(query);
+        }
     }
 }

@@ -13,11 +13,13 @@ namespace Se1316_Group5_StudentManagement.GUI {
         SubjectDAO sdb;
         TeacherDAO tdb;
         string flag;
+        bool check;
         public TeacherSubjectManagement() {
             InitializeComponent();
             sdb = new SubjectDAO();
             tdb = new TeacherDAO();
             flag = "";
+            check = false;
         }
 
         private void TeacherSubjectManagement_Load(object sender, EventArgs e) {
@@ -25,10 +27,16 @@ namespace Se1316_Group5_StudentManagement.GUI {
             loadComBoBoxSubjectId();
             loadComBoBoxTeacherId();
             loadData();
+            check = true;
         }
 
         private void loadCombobox() {
-            cbxSubject.DataSource = sdb.selectSubject_Dat();
+            DataTable dt = sdb.selectSubject_Dat();
+            var dr = dt.NewRow();
+            dr["SubjectCode"] = -1;
+            dr["SubjectName"] = "All";
+            dt.Rows.InsertAt(dr, 0);
+            cbxSubject.DataSource = dt;
             cbxSubject.DisplayMember = "SubjectName";
             cbxSubject.ValueMember = "SubjectCode";
         }
@@ -50,10 +58,18 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void cbxSubject_SelectedValueChanged(object sender, EventArgs e) {
-            try {
-                txtSubjectCode.Text = cbxSubject.SelectedValue.ToString();
-            } catch(Exception ex) {
-                MessageBox.Show(ex.Message);
+            if(check) {
+                try {
+                    txtSubjectCode.Text = cbxSubject.SelectedValue.ToString();
+                    if(txtSubjectCode.Text.Equals("-1")) {
+                        loadData();
+                    } else {
+                        dataTeacherSubject.DataSource = tdb.selectTeachSubjectBySubjectCode_Dat(txtSubjectCode.Text);
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -108,18 +124,17 @@ namespace Se1316_Group5_StudentManagement.GUI {
 
             var confirmResult = MessageBox.Show("Are you sure to delete this data?", "Confirm Delete!!", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes) {
-                //int teacherID = Convert.ToInt32();
-                //MessageBox.Show(teacherID + "");
-                int subjectID = Convert.ToInt32(cbbSubjectId.SelectedValue.ToString());
-                MessageBox.Show(subjectID + "");
-                //tdb.deleteTeache_Dat(teacherID, subjectID);
+                int teacherID = Convert.ToInt32(txtIdTeacher.Text);
+                int subjectID = Convert.ToInt32(txtSubjectId.Text);
+                tdb.deleteTeache_Dat(teacherID, subjectID);
 
                 loadData();
             }
         }
 
         private void dataTeacherSubject_CellClick(object sender, DataGridViewCellEventArgs e) {
-            cbbSubjectId.SelectedText = dataTeacherSubject.Rows[e.RowIndex].Cells["TeacherID"].Value.ToString();
+            txtIdTeacher.Text = dataTeacherSubject.Rows[e.RowIndex].Cells["TeacherId"].Value.ToString();
+            txtSubjectId.Text = dataTeacherSubject.Rows[e.RowIndex].Cells["subjectID"].Value.ToString();
         }
     }
 }

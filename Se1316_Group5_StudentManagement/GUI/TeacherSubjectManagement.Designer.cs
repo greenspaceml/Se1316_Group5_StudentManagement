@@ -39,6 +39,8 @@
             this.lbTeacherId = new System.Windows.Forms.Label();
             this.lbSubjectId = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtIdTeacher = new System.Windows.Forms.TextBox();
+            this.txtSubjectId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataTeacherSubject)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +94,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(16, 411);
+            this.btnAdd.Location = new System.Drawing.Point(124, 411);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 5;
@@ -197,7 +199,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(461, 411);
+            this.btnDelete.Location = new System.Drawing.Point(323, 411);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 7;
@@ -205,11 +207,29 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // txtIdTeacher
+            // 
+            this.txtIdTeacher.Location = new System.Drawing.Point(273, 64);
+            this.txtIdTeacher.Name = "txtIdTeacher";
+            this.txtIdTeacher.Size = new System.Drawing.Size(100, 20);
+            this.txtIdTeacher.TabIndex = 8;
+            this.txtIdTeacher.Visible = false;
+            // 
+            // txtSubjectId
+            // 
+            this.txtSubjectId.Location = new System.Drawing.Point(379, 65);
+            this.txtSubjectId.Name = "txtSubjectId";
+            this.txtSubjectId.Size = new System.Drawing.Size(100, 20);
+            this.txtSubjectId.TabIndex = 9;
+            this.txtSubjectId.Visible = false;
+            // 
             // TeacherSubjectManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 462);
+            this.Controls.Add(this.txtSubjectId);
+            this.Controls.Add(this.txtIdTeacher);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAdd);
@@ -247,5 +267,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtIdTeacher;
+        private System.Windows.Forms.TextBox txtSubjectId;
     }
 }
