@@ -11,13 +11,12 @@ using System.Windows.Forms;
 
 namespace Se1316_Group5_StudentManagement.GUI {
     public partial class StudentGUI : Form {
-        bool check = false;
+
         public StudentGUI() {
             InitializeComponent();
             LoadStudentGridView();
             setEnableOFF();
             LoadClassCombobox();
-            check = true;
         }
         private void LoadStudentGridView() {
             DataTable dt = StudentDAO.GetListStudent_Quang();
@@ -111,7 +110,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
                 setEnableForAddnew(true);
             } else {
                 int gen = rdbMale.Checked ? 1 : 0;
-                bool checking = StudentDAO.InsertStudent_Quang(cbxClassName.SelectedValue.ToString(),txtStudentName.Text, gen, txtStudentDOB.Text, txtStudentAddress.Text, txtStudentPhone.Text, txtStudentEmail.Text);
+                bool checking = StudentDAO.InsertStudent_Quang(cbxClassName.SelectedValue.ToString(), txtStudentName.Text, gen, txtStudentDOB.Text, txtStudentAddress.Text, txtStudentPhone.Text, txtStudentEmail.Text);
                 btnAdd.Text = "Add New Student";
                 setEnableForAddnew(false);
                 MessageBox.Show(checking ? "New student added successful!" : "Student adding failed!");
@@ -142,16 +141,15 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void cbxClassName_SelectedIndexChanged(object sender, EventArgs e) {
-            //if(check) {
-                DataTable dt = StudentDAO.GetListSubjectByClass_Quang(cbxClassName.SelectedValue.ToString());
+                string cbx = cbxClassName.SelectedValue.ToString();
+                DataTable dt = StudentDAO.GetListSubjectByClass_Quang(cbx);
                 lbxSubject.DataSource = dt;
                 lbxSubject.ValueMember = "SubjectID";
-                lbxSubject.DisplayMember = "SubjectName";
-            //}
+            lbxSubject.DisplayMember = "SubjectName";
         }
 
         private void btnChangeClass_Click(object sender, EventArgs e) {
-            bool checking = StudentDAO.ChangeClass(cbxClassName.SelectedValue.ToString(),txtStudentID.Text);
+            bool checking = StudentDAO.ChangeClass(cbxClassName.SelectedValue.ToString(), txtStudentID.Text);
             MessageBox.Show(checking ? "Change Class successful!" : "Change class failed!");
             LoadStudentGridView();
         }
