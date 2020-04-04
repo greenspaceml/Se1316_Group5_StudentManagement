@@ -43,10 +43,12 @@ namespace Se1316_Group5_StudentManagement.GUI {
         private void btnAdd_Click(object sender, EventArgs e) {
             setEnable(true);
             flag = "add";
+            groupBox1.Text = "Add Infor";
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
             setEnable(false);
+            groupBox1.Text = "Infor";
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
@@ -78,7 +80,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
                 }
             }
 
-
+            groupBox1.Text = "Infor";
             loadData();
         }
 
@@ -93,6 +95,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
             txtPhone.Text = dataTeacher.Rows[e.RowIndex].Cells["Phone"].Value.ToString();
             radMale.Checked = (bool) dataTeacher.Rows[e.RowIndex].Cells["Gender"].Value;
             radFemale.Checked = !(bool) dataTeacher.Rows[e.RowIndex].Cells["Gender"].Value;
+            dtDOB.Value = (DateTime) dataTeacher.Rows[e.RowIndex].Cells["DoB"].Value;
         }
 
         private void btnFilter_Click(object sender, EventArgs e) {
@@ -110,6 +113,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
 
             setEnable(true);
             flag = "edit";
+            groupBox1.Text = "Edit Infor";
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
@@ -125,6 +129,11 @@ namespace Se1316_Group5_StudentManagement.GUI {
 
                 loadData();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            TeacherSubjectManagement f = new TeacherSubjectManagement();
+            f.ShowDialog();
         }
     }
 }

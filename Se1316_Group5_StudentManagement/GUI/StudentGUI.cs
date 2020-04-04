@@ -15,12 +15,32 @@ namespace Se1316_Group5_StudentManagement.GUI {
             InitializeComponent();
             LoadStudentGridView();
             setEnableOFF();
+            LoadClassCombobox();
         }
         private void LoadStudentGridView() {
             DataTable dt = StudentDAO.GetListStudent_Quang();
             DataView dv = new DataView(dt);
             dataGridViewStudent.DataSource = dv;
         }
+
+        private void LoadClassCombobox() {
+            DataTable dt = StudentDAO.GetListClasses_Quang();
+            cbxClassName.DataSource = dt;
+            cbxClassName.ValueMember = "ClassID";
+            cbxClassName.DisplayMember = "ClassName";
+        }
+
+        private void SetSelectedClass_Quang(DataGridViewCellEventArgs e) {
+            string value = null;
+            DataTable dt = StudentDAO.GetListClassesByStudentID_Quang(dataGridViewStudent.Rows[e.RowIndex].Cells["StudentID"].Value.ToString());
+            //class ID class Name
+            foreach (DataRow row in dt.Rows) {
+                value = row["ClassID"].ToString();
+            }
+            cbxClassName.SelectedValue = value;
+
+        }
+
         void setEnableOFF() {
             txtStudentName.Enabled = false;
             txtStudentDOB.Enabled = false;
@@ -42,6 +62,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
             rdbMale.Enabled = va;
             btnDelete.Enabled = !va;
             btnEdit.Enabled = !va;
+            btnChangeClass.Enabled = false;
         }
         void setEnableForEdit(bool va) {
             txtStudentName.Enabled = va;
@@ -53,10 +74,12 @@ namespace Se1316_Group5_StudentManagement.GUI {
             rdbMale.Enabled = va;
             btnDelete.Enabled = !va;
             btnAdd.Enabled = !va;
+            btnChangeClass.Enabled = false;
         }
         void setEnableForDelete() {
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
+            btnChangeClass.Enabled = false;
         }
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e) {
             txtStudentID.Text = dataGridViewStudent.Rows[e.RowIndex].Cells["StudentID"].Value.ToString();
@@ -69,6 +92,8 @@ namespace Se1316_Group5_StudentManagement.GUI {
             txtStudentEmail.Text = dataGridViewStudent.Rows[e.RowIndex].Cells["Email"].Value.ToString();
             btnDelete.Enabled = true;
             btnEdit.Enabled = true;
+            SetSelectedClass_Quang(e);
+            btnChangeClass.Enabled = true;
         }
 
         private void btnFindStudent_Click(object sender, EventArgs e) {
@@ -84,7 +109,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
                 setEnableForAddnew(true);
             } else {
                 int gen = rdbMale.Checked ? 1 : 0;
-                bool checking = StudentDAO.InsertStudent_Quang(txtStudentName.Text, gen, txtStudentDOB.Text, txtStudentAddress.Text, txtStudentPhone.Text, txtStudentEmail.Text);
+                bool checking = StudentDAO.InsertStudent_Quang(cbxClassName.SelectedValue.ToString(),txtStudentName.Text, gen, txtStudentDOB.Text, txtStudentAddress.Text, txtStudentPhone.Text, txtStudentEmail.Text);
                 btnAdd.Text = "Add New Student";
                 setEnableForAddnew(false);
                 MessageBox.Show(checking ? "New student added successful!" : "Student adding failed!");
@@ -94,7 +119,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
 
         private void btnDelete_Click(object sender, EventArgs e) {
             setEnableForDelete();
-            bool checking = StudentDAO.DeleteStudent(txtStudentID.Text);
+            bool checking = StudentDAO.DeleteStudent_Quang(txtStudentID.Text);
             MessageBox.Show(checking ? "Student delete successful!" : "Student delete failed!");
             LoadStudentGridView();
         }
@@ -112,6 +137,19 @@ namespace Se1316_Group5_StudentManagement.GUI {
                 LoadStudentGridView();
             }
 
+        }
+
+        private void cbxClassName_SelectedIndexChanged(object sender, EventArgs e) {
+            DataTable dt = StudentDAO.GetListSubjectByClass_Quang(cbxClassName.SelectedValue.ToString());
+            lbxSubject.DataSource = dt;
+            lbxSubject.ValueMember = "SubjectID";
+            lbxSubject.DisplayMember = "SubjectName";
+        }
+
+        private void btnChangeClass_Click(object sender, EventArgs e) {
+            bool checking = StudentDAO.ChangeClass(cbxClassName.SelectedValue.ToString(),txtStudentID.Text);
+            MessageBox.Show(checking ? "Change Class successful!" : "Change class failed!");
+            LoadStudentGridView();
         }
     }
 }

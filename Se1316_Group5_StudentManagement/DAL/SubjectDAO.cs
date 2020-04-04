@@ -1,6 +1,7 @@
 ﻿using Se1316_Group5_StudentManagement.GUI;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,6 +10,14 @@ using System.Text;
 
 namespace Se1316_Group5_StudentManagement.DAL {
     class SubjectDAO {
+        public DataTable selectSubject_Dat() {
+            return DAO.GetDataTable(@"SELECT * FROM [StudentManagementSystem].[dbo].[Subject]");
+        }
+
+        public DataTable selectSubjectById_Dat(int subjectId) {
+            return DAO.GetDataTable(@"SELECT * FROM [StudentManagementSystem].[dbo].[Subject] WHERE SubjectID = " + subjectId);
+        }
+
         static string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         public static DataTable getSubject_Hoang() {
@@ -34,7 +43,5 @@ FROM            Mark INNER JOIN
             return count;
             conn.Close();
         }
-
-
     }
 }
