@@ -58,10 +58,10 @@
             this.dataTeacher.AllowUserToAddRows = false;
             this.dataTeacher.AllowUserToDeleteRows = false;
             this.dataTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTeacher.Location = new System.Drawing.Point(12, 49);
+            this.dataTeacher.Location = new System.Drawing.Point(12, 41);
             this.dataTeacher.Name = "dataTeacher";
             this.dataTeacher.ReadOnly = true;
-            this.dataTeacher.Size = new System.Drawing.Size(569, 280);
+            this.dataTeacher.Size = new System.Drawing.Size(759, 280);
             this.dataTeacher.TabIndex = 0;
             this.dataTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTeacher_CellClick);
             // 
@@ -103,7 +103,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(130, 336);
+            this.btnEdit.Location = new System.Drawing.Point(155, 336);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(246, 336);
+            this.btnDelete.Location = new System.Drawing.Point(293, 336);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 6;
@@ -140,7 +140,7 @@
             this.groupBox1.Controls.Add(this.lbGender);
             this.groupBox1.Controls.Add(this.lbName);
             this.groupBox1.Controls.Add(this.lbTeacherId);
-            this.groupBox1.Location = new System.Drawing.Point(611, 49);
+            this.groupBox1.Location = new System.Drawing.Point(811, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(285, 280);
             this.groupBox1.TabIndex = 8;
@@ -306,18 +306,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(342, 335);
+            this.button1.Location = new System.Drawing.Point(436, 336);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Hoang oc cho";
+            this.button1.Text = "Teacher Subject";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TeacherGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 438);
+            this.ClientSize = new System.Drawing.Size(1115, 438);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDelete);

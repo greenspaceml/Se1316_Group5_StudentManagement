@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,47 +50,48 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1220, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1220, 58);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 54);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // classToolStripMenuItem
             // 
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(46, 54);
             this.classToolStripMenuItem.Text = "Class";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
+            this.teacherToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("teacherToolStripMenuItem.Image")));
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(109, 54);
             this.teacherToolStripMenuItem.Text = "Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(60, 54);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // subjectToolStripMenuItem
             // 
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
-            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(58, 54);
             this.subjectToolStripMenuItem.Text = "Subject";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 54);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // contextMenuStrip1
@@ -102,10 +104,10 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1220, 493);
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 27);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1220, 484);
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 61);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1220, 518);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1220, 484);
             this.toolStripContainer1.TabIndex = 2;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
