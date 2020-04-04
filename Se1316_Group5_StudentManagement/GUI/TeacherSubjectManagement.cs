@@ -119,7 +119,7 @@ namespace Se1316_Group5_StudentManagement.GUI {
         }
 
         private void dataTeacherSubject_CellClick(object sender, DataGridViewCellEventArgs e) {
-            cbbSubjectId.SelectedItem = dataTeacherSubject.Rows[e.RowIndex].Cells["TeacherID"].Value;
+            cbbSubjectId.SelectedText = dataTeacherSubject.Rows[e.RowIndex].Cells["TeacherID"].Value.ToString();
         }
     }
 }
