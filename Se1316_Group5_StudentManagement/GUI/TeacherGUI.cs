@@ -135,5 +135,16 @@ namespace Se1316_Group5_StudentManagement.GUI {
             TeacherSubjectManagement f = new TeacherSubjectManagement();
             f.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            if (dataTeacher.SelectedRows.Count <= 0) {
+                MessageBox.Show("Please select a row!");
+                return;
+            }
+
+            SubjectATeacher f = new SubjectATeacher();
+            f.TeacherId = Convert.ToInt32(txtTeacherId.Text);
+            f.ShowDialog();
+        }
     }
 }

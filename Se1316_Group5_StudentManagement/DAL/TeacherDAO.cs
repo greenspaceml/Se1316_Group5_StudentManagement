@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using Se1316_Group5_StudentManagement.DTL;
+using System.Configuration;
 
 namespace Se1316_Group5_StudentManagement.DAL {
     class TeacherDAO {
@@ -113,6 +114,46 @@ namespace Se1316_Group5_StudentManagement.DAL {
                                                  Teacher ON Teach.TeacherID = Teacher.TeacherID
                                 Where subjectCode like '" + subjectCode + "'";
             return DAO.GetDataTable(query);
+        }
+
+        public DataTable selectTeachSubjectByTeacherId_Dat (int teacherId) {
+            string query = @"SELECT        Teacher.TeacherID, Teacher.Name, Teacher.Gender, Subject.*
+                            FROM          Subject INNER JOIN
+                                          Teach ON Subject.SubjectID = Teach.SubjectID INNER JOIN
+                                          Teacher ON Teach.TeacherID = Teacher.TeacherID 
+
+                            Where Teacher.TeacherID = " + teacherId + "";
+            return DAO.GetDataTable(query);
+        }
+
+        public List<Subject> selectSubject_Dat() {
+            List<Subject> subject = new List<Subject>();
+            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(strConn);
+            try {
+                String sql = @"SELECT * FROM [StudentManagementSystem].[dbo].[Subject]";
+                connection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand(sql, connection);
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read()) {
+                    Subject s = new Subject();
+                    s.SubjectID = Convert.ToInt32(reader["SubjectID"]);
+                    s.SubjectName = reader["SubjectName"].ToString();
+                    s.SubjectCode = reader["SubjectCode"].ToString();
+                    subject.Add(s);
+                }
+            }
+            catch (Exception ex) {
+                Console.WriteLine("get all sai");
+            }
+            finally {
+                if (connection.State != System.Data.ConnectionState.Closed) {
+                    connection.Close();
+                }
+            }
+            return subject;
         }
     }
 }
