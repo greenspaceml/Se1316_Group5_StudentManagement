@@ -73,6 +73,12 @@
     <Compile Include="GUI\ClassGUI.Designer.cs">
       <DependentUpon>ClassGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\MarkGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MarkGUI.Designer.cs">
+      <DependentUpon>MarkGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\StudentGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ClassGUI.resx">
       <DependentUpon>ClassGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MarkGUI.resx">
+      <DependentUpon>MarkGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\StudentGUI.resx">
       <DependentUpon>StudentGUI.cs</DependentUpon>

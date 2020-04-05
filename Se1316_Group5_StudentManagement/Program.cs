@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Se1316_Group5_StudentManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;

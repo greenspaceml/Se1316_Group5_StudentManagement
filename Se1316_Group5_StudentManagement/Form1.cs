@@ -46,7 +46,11 @@ namespace Se1316_Group5_StudentManagement {
             About f = new About();
             embed(toolStripContainer1.ContentPanel, f);
         }
-        //ReserveGUI f = new ReserveGUI();
-        //embed(toolStripContainer1.ContentPanel, f);
+
+        private void markUpdateToolStripMenuItem_Click(object sender, EventArgs e) {
+            MarkGUI f = new MarkGUI();
+            embed(toolStripContainer1.ContentPanel, f);
+        }
+
     }
 }

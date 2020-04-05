@@ -27,6 +27,14 @@ namespace Se1316_Group5_StudentManagement.DAL {
   FROM[StudentManagementSystem].[dbo].[Subject]";
             return DAO.GetDataTable(cmd);
         }
+        
+        public static DataTable getMark_Hoang() {
+            string cmd = @"SELECT        Mark.MarkID, Mark.StudentID, Mark.SubjectID, Mark.Test1, Mark.Test2, Mark.Test3, Mark.FinalTest, Subject.SubjectName, Subject.SubjectCode, Student.Name
+FROM            Mark INNER JOIN
+                         Student ON Mark.StudentID = Student.StudentID INNER JOIN
+                         Subject ON Mark.SubjectID = Subject.SubjectID";
+            return DAO.GetDataTable(cmd);
+        }
 
 
         public static int countStudent_Hoang(string subjectID) {
@@ -94,6 +102,26 @@ WHERE        Subject.SubjectID = @SubjectID";
             conn.Open();
             string count = (string) cmd.ExecuteScalar();
             return count;
+            conn.Close();
+        }
+        
+        public static void updateMark_Hoang(string markID, int test1, int test2, int test3, int final) {
+            string sql = @"UPDATE [dbo].[Mark]
+   SET 
+      [Test1] = @test1
+      ,[Test2] = @test2
+      ,[Test3] = @test3
+      ,[FinalTest] = @final
+ WHERE [MarkID] = @id";
+            SqlConnection conn = new SqlConnection(strConn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@test1", test1);
+            cmd.Parameters.AddWithValue("@test2", test2);
+            cmd.Parameters.AddWithValue("@test3", test3);
+            cmd.Parameters.AddWithValue("@final", final);
+            cmd.Parameters.AddWithValue("@id", markID);
+            conn.Open();
+             cmd.ExecuteNonQuery();
             conn.Close();
         }
 

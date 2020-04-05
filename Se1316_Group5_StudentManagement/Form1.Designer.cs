@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.markUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -56,6 +57,7 @@
             this.teacherToolStripMenuItem,
             this.studentToolStripMenuItem,
             this.subjectToolStripMenuItem,
+            this.markUpdateToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -203,6 +205,14 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Student Management System";
             // 
+            // markUpdateToolStripMenuItem
+            // 
+            this.markUpdateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("markUpdateToolStripMenuItem.Image")));
+            this.markUpdateToolStripMenuItem.Name = "markUpdateToolStripMenuItem";
+            this.markUpdateToolStripMenuItem.Size = new System.Drawing.Size(136, 54);
+            this.markUpdateToolStripMenuItem.Text = "Mark update";
+            this.markUpdateToolStripMenuItem.Click += new System.EventHandler(this.markUpdateToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +253,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem markUpdateToolStripMenuItem;
     }
 }
 
