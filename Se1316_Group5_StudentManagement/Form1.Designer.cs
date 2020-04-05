@@ -76,32 +76,32 @@
             // 
             this.classToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("classToolStripMenuItem.Image")));
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(96, 54);
-            this.classToolStripMenuItem.Text = "Class";
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(170, 54);
+            this.classToolStripMenuItem.Text = "Class Management";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("teacherToolStripMenuItem.Image")));
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(109, 54);
-            this.teacherToolStripMenuItem.Text = "Teacher";
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(183, 54);
+            this.teacherToolStripMenuItem.Text = "Teacher Management";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentToolStripMenuItem.Image")));
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(110, 54);
-            this.studentToolStripMenuItem.Text = "Student";
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
+            this.studentToolStripMenuItem.Text = "Student Management";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // subjectToolStripMenuItem
             // 
             this.subjectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("subjectToolStripMenuItem.Image")));
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
-            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(108, 54);
-            this.subjectToolStripMenuItem.Text = "Subject";
+            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(182, 54);
+            this.subjectToolStripMenuItem.Text = "Subject Management";
             this.subjectToolStripMenuItem.Click += new System.EventHandler(this.subjectToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
